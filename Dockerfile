@@ -1,11 +1,11 @@
-FROM ubuntu:latest
+FROM alpine:latest
 
 MAINTAINER Eugene de Beste
-RUN groupadd -r plink && useradd -r -g plink plink
+#RUN groupadd -r plink && useradd -r -g plink plink
 
 # Install the packages needed to download and extract plink
-RUN apt-get update && apt-get install -y \
-    unzip\
+RUN apk update && apk add ca-certificates \
+    unzip \
     wget
 
 # Download and extract binary to /usr/bin
